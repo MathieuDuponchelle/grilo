@@ -255,6 +255,44 @@ GTK_DOC_CHECK([1.10],[--flavour no-tmpl])
 GOBJECT_INTROSPECTION_CHECK([0.9])
 
 # ----------------------------------------------------------
+# PYTHON
+# ----------------------------------------------------------
+
+AS_PATH_PYTHON([2.1])
+
+AM_PATH_PYTHON
+AC_MSG_CHECKING(for python >= 2.3)
+prog="
+import sys, string
+minver = (2,3,0,'final',0)
+if sys.version_info < minver:
+  sys.exit(1)
+sys.exit(0)"
+
+if $PYTHON -c "$prog" 1>&AC_FD_CC 2>&AC_FD_CC
+then
+  HAVE_PYTHON=yes
+  AC_MSG_RESULT(okay)
+else
+  HAVE_PYTHON=no
+  AC_MSG_RESULT(no python)
+fi
+
+# ----------------------------------------------------------
+# g-ir-doc-tool documentation
+# ----------------------------------------------------------
+
+dnl check if we have a recent introspection for future doc.
+g-ir-doc-tool --help 2>&1 | grep "link-to-gtk-doc" 2>&1 > /dev/null
+AM_CONDITIONAL([HAVE_RECENT_INTROSPECTION],[test $? == 0])
+
+AM_CONDITIONAL([ENABLE_MARKDOWN],[test "x$HAVE_PYTHON" != "xno"])
+
+dnl check if we can build the rake html future doc
+AC_CHECK_PROG(RAKE, rake, yes, no)
+AM_CONDITIONAL([BUILD_RAKE_HTML],[test "x$RAKE" == "xyes"])
+
+# ----------------------------------------------------------
 # VALA BINDINGS
 # ----------------------------------------------------------
 
@@ -309,6 +347,7 @@ AC_CONFIG_FILES([
   bindings/vala/Makefile
   doc/Makefile
   doc/grilo/Makefile
+  doc/future/Makefile
   examples/Makefile
 ])
 

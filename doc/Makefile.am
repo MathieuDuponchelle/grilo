@@ -7,4 +7,8 @@
 
 SUBDIRS = grilo
 
+if HAVE_RECENT_INTROSPECTION
+SUBDIRS += future
+endif
+
 -include $(top_srcdir)/git.mk
