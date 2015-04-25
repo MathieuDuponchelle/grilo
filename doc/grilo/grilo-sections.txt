@@ -496,6 +496,24 @@ grl_media_box_get_type
 </SECTION>
 
 <SECTION>
+<FILE>grl-media-container</FILE>
+<TITLE>GrlMediaContainer</TITLE>
+GrlMediaContainer
+GrlMediaContainerClass
+grl_media_container_new
+grl_media_container_add_media
+grl_media_container_get_media
+<SUBSECTION Standard>
+GRL_IS_MEDIA_CONTAINER
+GRL_IS_MEDIA_CONTAINER_CLASS
+GRL_MEDIA_CONTAINER
+GRL_MEDIA_CONTAINER_CLASS
+GRL_MEDIA_CONTAINER_GET_CLASS
+GRL_TYPE_MEDIA_CONTAINER
+grl_media_container_get_type
+</SECTION>
+
+<SECTION>
 <FILE>grl-media-video</FILE>
 <TITLE>GrlMediaVideo</TITLE>
 GrlMediaVideo

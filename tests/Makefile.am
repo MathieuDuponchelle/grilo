@@ -11,6 +11,10 @@ TEST_PROGS       = registry
 registry_SOURCES = registry.c
 registry_LDADD = $(progs_ldadd)
 
+TEST_PROGS       += media-container
+media_container_SOURCES = media-container.c
+media_container_LDADD = $(progs_ldadd)
+
 ### testing rules (from glib)
 
 GTESTER = gtester

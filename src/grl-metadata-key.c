@@ -586,6 +586,24 @@ grl_metadata_key_setup_system_keys (GrlRegistry *registry)
                                              GRL_METADATA_KEY_AUDIO_TRACK,
                                              NULL);
 
+  grl_registry_register_metadata_key_system (registry,
+                                             g_param_spec_object ("contained-media",
+                                                                  "Contained media",
+                                                                  "A media contained by a media",
+                                                                  GRL_TYPE_MEDIA,
+                                                                  G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE),
+                                             GRL_METADATA_KEY_CONTAINED_MEDIA,
+                                             NULL);
+
+  grl_registry_register_metadata_key_system (registry,
+                                             g_param_spec_pointer ("media-container",
+                                                                   "Media container",
+                                                                   "The container of the media",
+                                                                  G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE),
+                                             GRL_METADATA_KEY_MEDIA_CONTAINER,
+                                             NULL);
+
+
   /* Create the relations */
   grl_registry_register_metadata_key_relation (registry,
                                                GRL_METADATA_KEY_TITLE,
