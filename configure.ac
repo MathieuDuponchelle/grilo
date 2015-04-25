@@ -296,8 +296,6 @@ AC_CONFIG_FILES([
   po/Makefile.in
   po/Makefile
   tests/Makefile
-  tests/python/Makefile
-  tests/python/util.py
   libs/Makefile
   libs/net/Makefile
   libs/pls/Makefile

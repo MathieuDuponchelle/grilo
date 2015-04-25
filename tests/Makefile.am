@@ -1,9 +1,5 @@
 SUBDIRS = .
 
-if HAVE_INTROSPECTION
-SUBDIRS += python
-endif
-
 # things to test
 
 noinst_PROGRAMS = $(TEST_PROGS)
