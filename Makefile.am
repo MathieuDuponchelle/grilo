@@ -50,7 +50,7 @@ DISTCHECK_CONFIGURE_FLAGS= \
    --enable-gtk-doc        \
    --enable-introspection  \
    --enable-test-ui        \
-   --enable-vala
+   --enable-vala=auto
 
 distclean-local:
 	-rm -rf autom4te.cache
